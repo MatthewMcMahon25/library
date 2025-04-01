@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: auto;
+    max-width: 90%;
+    color: white;
+    background-color: #28282B;
+    border-bottom: 4px solid #DDBA65;
+}
+
+main {
+    margin: auto;
+}
+
+.bookContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;
+}
