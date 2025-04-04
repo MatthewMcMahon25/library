@@ -75,3 +75,48 @@ function display() {
 }
 
 display();
+
+const dialog = document.querySelector("dialog");
+const form = document.querySelector("form");
+const showButton = document.querySelector(".add");
+const closeButton = document.querySelector("dialog button");
+const confirmButton = dialog.querySelector("#confirmButton");
+
+function clearForm() {
+    form.reset();
+}
+
+function refreshDisplay() {
+    const container = document.querySelector(".bookContainer");
+    container.innerHTML = "";
+    display();
+}
+
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
+
+confirmButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector("#bookTitle").value;
+    const author = document.querySelector("#bookAuthor").value;
+    const pages = document.querySelector("#bookPages").value;
+    const read = document.querySelector("input[name='readStatus']:checked")?.value === "true";
+    
+    const defaultCover = "images/default.jpeg";
+    addBookToLibrary(defaultCover, title, author, pages, read);
+
+    dialog.close();
+    clearForm();
+    refreshDisplay();
+});
+
+// # 5 Remove Book Button
+
+
+// # 6 Change Read Status

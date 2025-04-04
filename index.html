@@ -10,6 +10,39 @@
 <body>
     <header>
         <h1>Library</h1>
+
+        <dialog>
+            <button autofocus>Close</button>
+            <h2>Add A New Book</h2>
+            <p>Fill out the form below to add a new book to the library</p>
+
+            <form id="bookForm" action="">
+                <input type="text" name="Title" placeholder="Title" 
+                id="bookTitle"required>
+
+                <input type="text" name="Author" placeholder="Author" 
+                id="bookAuthor" required>
+
+                <input type="number" name="Pages" placeholder="Pages" 
+                id="bookPages" required>
+
+                <div>
+                    <label>
+                        <input type="radio" name="readStatus" value="true" />
+                        Read
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="readStatus" value="false" />
+                        Not Read
+                    </label>
+                </div>
+                <div>
+                    <button id="confirmButton" type="submit">Add Book</button>
+                </div>
+            </form>
+        </dialog>
+        <button class="add">Add New Book</button>
     </header>
     <main>
         <div class="bookContainer"></div>
