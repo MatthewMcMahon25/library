@@ -3,12 +3,43 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.5;
+}
+
 header {
-    margin: auto;
-    max-width: 90%;
-    color: white;
     background-color: #28282B;
+    color: #F4F4F4;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 4px solid #DDBA65;
+    max-width: 90%;
+    margin: auto;
+}
+
+header h1 {
+    margin-left: 20px;
+}
+
+.add {
+    background-color: #1892d3;
+    color: white;
+    padding: 10px 18px;
+    margin: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.add:hover {
+    background-color: #147ab5;
 }
 
 dialog {
@@ -26,6 +57,39 @@ dialog {
     transition: 250ms ease-in-out;
 }
 
+dialog[open] {
+    animation: slideIn 0.3s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+}
+
+dialog button,
+dialog form button {
+    background-color: #DDBA65;
+    color: #28282B;
+    padding: 10px 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+dialog button:hover,
+dialog form button:hover {
+    background-color: #C4A77D;
+}
 
 form {
     display: flex;
@@ -34,8 +98,21 @@ form {
     max-width: 100%;
 }
 
+form input[type="text"],
+form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #5A5A5C;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+form input[type="radio"] {
+    margin-right: 5px;
+}
+
 main {
     margin: auto;
+    max-width: 90%;
 }
 
 .bookContainer{
@@ -52,13 +129,61 @@ main {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: lightblue;
-    border-radius: 5px;
-    width: 200px;
+    background-color: #ffffff;
+    color: #28282B;
+    border-radius: 10px;
+    width: 220px;
     padding: 20px;
-    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
-img {
-    width: 150px;
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.card button:first-of-type {
+    background-color: #ff4d4d;
+    color: white;
+}
+  
+.card button:first-of-type:hover {
+    background-color: #e60000;
+}
+  
+.card button:last-of-type {
+    background-color: #4CAF50;
+    color: white;
+}
+  
+.card button:last-of-type:hover {
+    background-color: #388e3c;
+}
+
+.cover-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+@media (max-width: 600px) {
+    .bookContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%;
+    }
 }

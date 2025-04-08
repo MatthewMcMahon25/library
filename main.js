@@ -24,6 +24,15 @@ addBookToLibrary("images/captivate.jpg", "Captivate", "Vanessa Van Edwards", 320
 function display() {
     const container = document.querySelector(".bookContainer");
 
+    if (myLibrary.length === 0) {
+        const msg = document.createElement("p");
+        msg.textContent = "📚 No books in your library. Add some!";
+        msg.style.fontSize = "18px";
+        msg.style.marginTop = "20px";
+        container.appendChild(msg);
+        return;
+    }
+
     for (let item in myLibrary) {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("card");
