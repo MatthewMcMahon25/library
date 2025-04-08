@@ -49,6 +49,9 @@ main {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: lightblue;
     border-radius: 5px;
     width: 200px;

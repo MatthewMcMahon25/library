@@ -58,12 +58,12 @@ function display() {
             else if (prop === 'read') {
                 if (value === true) {
                     const p = document.createElement("p");
-                    p.textContent = "Read" + ": " + '✅';
+                    p.textContent = "Read: ✅";
 
                     bookDiv.appendChild(p);
                 } else {
                     const p = document.createElement("p");
-                    p.textContent = "Read" + ": " + '❌';
+                    p.textContent = "Read: ❌";
 
                     bookDiv.appendChild(p);
                 }
@@ -72,12 +72,21 @@ function display() {
             container.appendChild(bookDiv);
         }
 
+        // To Remove A Book
         const rmvButn = document.createElement("button");
         rmvButn.textContent = "Remove Book";
         rmvButn.id = myLibrary[item].id;
         bookDiv.appendChild(rmvButn);
 
         rmvButn.addEventListener("click", () => removeBookById(rmvButn.id));
+
+        // To Change A Book's Read Status
+        const changeButn = document.createElement("button");
+        changeButn.textContent = myLibrary[item].read ? "Not Read" : "Mark as Read";
+        changeButn.dataset.id = myLibrary[item].id;
+        bookDiv.appendChild(changeButn);
+
+        changeButn.addEventListener("click", () => changeReadStatus(changeButn));
     }
 }
 
@@ -129,8 +138,16 @@ function removeBookById(id) {
         myLibrary.splice(index, 1);
         refreshDisplay();
     }
-}
+}    
 
+function changeReadStatus(buttonElement) {
+    const bookId = buttonElement.dataset.id;
+    const book = myLibrary.find(book => book.id === bookId);
+
+    if (book) {
+        book.read = !book.read;
     
-
-// # 6 Change Read Status
+        buttonElement.textContent = book.read ? "Not Read" : "Read";
+        refreshDisplay();
+    }
+}
