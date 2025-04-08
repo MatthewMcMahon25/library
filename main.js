@@ -71,6 +71,13 @@ function display() {
 
             container.appendChild(bookDiv);
         }
+
+        const rmvButn = document.createElement("button");
+        rmvButn.textContent = "Remove Book";
+        rmvButn.id = myLibrary[item].id;
+        bookDiv.appendChild(rmvButn);
+
+        rmvButn.addEventListener("click", () => removeBookById(rmvButn.id));
     }
 }
 
@@ -116,7 +123,14 @@ confirmButton.addEventListener("click", (event) => {
     refreshDisplay();
 });
 
-// # 5 Remove Book Button
+function removeBookById(id) {
+    const index = myLibrary.findIndex(book => book.id === id);
+    if (index !== -1) {
+        myLibrary.splice(index, 1);
+        refreshDisplay();
+    }
+}
 
+    
 
 // # 6 Change Read Status
